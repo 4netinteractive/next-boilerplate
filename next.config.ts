@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const withPlugins = require('next-compose-plugins');
 
-const withTypescript = require('@zeit/next-typescript');
 const withCSS = require('@zeit/next-css');
 const withSass = require('@zeit/next-sass');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
@@ -13,9 +12,9 @@ const withConfig = nextRuntimeDotenv({
 });
 
 module.exports = withConfig(
-	withPlugins([[withTypescript], [withCSS], [withSass], [withBundleAnalyzer]], {
-		analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
-		analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
+	withPlugins([[withCSS], [withSass], [withBundleAnalyzer]], {
+		analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE || ''),
+		analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE || ''),
 		bundleAnalyzerConfig: {
 			server: {
 				analyzerMode: 'static',
@@ -28,3 +27,5 @@ module.exports = withConfig(
 		},
 	}),
 );
+
+export default undefined;
