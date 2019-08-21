@@ -1,4 +1,4 @@
-import * as Adapter from 'enzyme-adapter-react-16';
+import Adapter from 'enzyme-adapter-react-16';
 
 require('enzyme').configure({ adapter: new Adapter() });
 
@@ -35,7 +35,8 @@ nock('http://localhost:3000')
 //env variables
 require('dotenv').config({ path: '.env.test' });
 
-import { setConfig } from 'next/config'
+const { setConfig } = require('next/config')
+
 setConfig({
 	publicRuntimeConfig:
 	{
