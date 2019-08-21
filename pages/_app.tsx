@@ -1,5 +1,5 @@
 //#region Global Imports
-import App, { Container, NextAppContext } from 'next/app';
+import App, { Container, AppContext } from 'next/app';
 import * as React from 'react';
 
 import { Provider } from 'react-redux';
@@ -15,7 +15,7 @@ import { IApp } from '@Interfaces';
 //#endregion Interface Imports
 
 class MyApp extends App<IApp.IProps> {
-	static async getInitialProps(props: NextAppContext) {
+	static async getInitialProps(props: AppContext) {
 		let pageProps = {};
 
 		if (props.Component.getInitialProps) {
