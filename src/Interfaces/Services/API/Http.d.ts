@@ -1,7 +1,7 @@
 /**
  * @export @interface HttpModel
  */
-declare namespace HttpModel {
+export namespace HttpModel {
 	/**
 	 * @interface Request
 	 */

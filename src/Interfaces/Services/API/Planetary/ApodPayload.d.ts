@@ -5,4 +5,5 @@ export interface ApodPayload {
 	 * @memberof ApodPayload
 	 */
 	hd?: boolean;
+	[key: string]: object;
 }
