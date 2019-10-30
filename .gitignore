@@ -77,3 +77,6 @@ documentation/website/build
 
 #Webpack bundle analyzer output folder
 bundle
+
+# VSCode
+.vscode

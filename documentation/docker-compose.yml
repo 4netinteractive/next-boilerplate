@@ -12,7 +12,7 @@ services:
       - ./website/core:/app/website/core
       - ./website/i18n:/app/website/i18n
       - ./website/pages:/app/website/pages
-      - ./website/static:/app/website/static
+      - ./website/public:/app/website/public
       - ./website/sidebars.json:/app/website/sidebars.json
       - ./website/siteConfig.js:/app/website/siteConfig.js
     working_dir: /app/website

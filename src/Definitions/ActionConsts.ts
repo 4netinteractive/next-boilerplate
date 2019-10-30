@@ -3,4 +3,4 @@ export const ActionConsts = {
 		ResetReducer: 'Home_ResetReducer',
 		SetReducer: 'Home_SetReducer',
 	},
-};
+}

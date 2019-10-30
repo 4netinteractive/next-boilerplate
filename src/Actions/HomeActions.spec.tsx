@@ -1,15 +1,15 @@
-import { HomeActions } from '@Actions';
-import { ActionConsts } from '@Definitions';
+import { HomeActions } from '@Actions'
+import { ActionConsts } from '@Definitions'
 
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
 
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
+const middlewares = [thunk]
+const mockStore = configureMockStore(middlewares)
 
 describe('Home action tests', () => {
 	test('Map test', async () => {
-		const store = mockStore();
+		const store = mockStore()
 
 		const expectedActions = [
 			{
@@ -18,37 +18,37 @@ describe('Home action tests', () => {
 				},
 				type: ActionConsts.Home.SetReducer,
 			},
-		];
+		]
 
 		store.dispatch(
 			HomeActions.Map({
 				version: 2,
 			}),
-		);
+		)
 
-		expect(store.getActions()).toEqual(expectedActions);
-	});
+		expect(store.getActions()).toEqual(expectedActions)
+	})
 
 	test('Reset test', async () => {
 		const store = mockStore({
 			home: {
 				version: 1,
 			},
-		});
+		})
 
 		const expectedActions = [
 			{
 				type: ActionConsts.Home.ResetReducer,
 			},
-		];
+		]
 
-		store.dispatch(HomeActions.Reset());
+		store.dispatch(HomeActions.Reset())
 
-		expect(store.getActions()).toEqual(expectedActions);
-	});
+		expect(store.getActions()).toEqual(expectedActions)
+	})
 
 	test('GetApod test', async () => {
-		const store = mockStore({});
+		const store = mockStore({})
 
 		const expectedActions = [
 			{
@@ -66,11 +66,11 @@ describe('Home action tests', () => {
 				},
 				type: ActionConsts.Home.SetReducer,
 			},
-		];
+		]
 
 		// eslint-disable-next-line
-		await store.dispatch<any>(HomeActions.GetApod({ params: { hd: true } }));
+		await store.dispatch<any>(HomeActions.GetApod({ params: { hd: true } }))
 
-		expect(store.getActions()).toEqual(expectedActions);
-	});
-});
+		expect(store.getActions()).toEqual(expectedActions)
+	})
+})

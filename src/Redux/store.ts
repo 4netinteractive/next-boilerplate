@@ -1,13 +1,9 @@
-//#region Global Imports
-import { createStore, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
-//#endregion Global Imports
+import { createStore, applyMiddleware } from 'redux'
+import thunkMiddleware from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly'
 
-//#region Interface Imports
-import Reducers from './Reducers';
-//#endregion Interface Imports
+import Reducers from './Reducers'
 
 export default () => {
-	return createStore(Reducers, {}, composeWithDevTools(applyMiddleware(thunkMiddleware)));
-};
+	return createStore(Reducers, {}, composeWithDevTools(applyMiddleware(thunkMiddleware)))
+}

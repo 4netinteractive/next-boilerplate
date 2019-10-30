@@ -10,47 +10,47 @@ export interface ApodResponse {
 	 * @type {string}
 	 * @memberof ApodResponse
 	 */
-	copyright: string;
+	copyright: string
 
 	/**
 	 *
 	 * @type {string}
 	 * @memberof ApodResponse
 	 */
-	date: string;
+	date: string
 
 	/**
 	 *
 	 * @type {string}
 	 * @memberof ApodResponse
 	 */
-	explanation: string;
+	explanation: string
 
 	/**
 	 *
 	 * @type {string}
 	 * @memberof ApodResponse
 	 */
-	hdurl: string;
+	hdurl: string
 
 	/**
 	 *
 	 * @type {string}
 	 * @memberof ApodResponse
 	 */
-	service_version: string;
+	service_version: string
 
 	/**
 	 *
 	 * @type {string}
 	 * @memberof ApodResponse
 	 */
-	title: string;
+	title: string
 
 	/**
 	 *
 	 * @type {string}
 	 * @memberof ApodResponse
 	 */
-	url: string;
+	url: string
 }

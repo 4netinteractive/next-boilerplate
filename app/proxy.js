@@ -4,6 +4,6 @@ const devProxy = {
 		pathRewrite: { '^/api': '' },
 		changeOrigin: true,
 	},
-};
+}
 
-module.exports = devProxy;
+module.exports = devProxy

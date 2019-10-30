@@ -1,6 +1,5 @@
-//#region Global Imports
-const path = require('path');
-//#endregion Global Imports
+
+const path = require('path')
 
 const configI18next = {
 	server: {
@@ -36,8 +35,8 @@ const configI18next = {
 			formatSeparator: ',',
 			// eslint-disable-next-line
 			format: (value, format) => {
-				if (format === 'uppercase') return value.toUpperCase();
-				return value;
+				if (format === 'uppercase') return value.toUpperCase()
+				return valu
 			},
 		},
 		detection: {
@@ -50,6 +49,6 @@ const configI18next = {
 			cookieMinutes: 10000,
 		},
 	},
-};
+}
 
-module.exports = configI18next;
+module.exports = configI18next

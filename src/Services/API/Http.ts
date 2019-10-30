@@ -1,12 +1,8 @@
-//#region Global Imports
-import 'isomorphic-unfetch';
-import getConfig from 'next/config';
-import { stringify } from 'query-string';
-//#endregion Global Imports
+import 'isomorphic-unfetch'
+import getConfig from 'next/config'
+import { stringify } from 'query-string'
 
-//#region Interface Imports
-import { HttpModel } from '@Interfaces';
-//#endregion Interface Imports
+import { HttpModel } from '@Interfaces'
 
 /**
  * @module Http
@@ -14,9 +10,9 @@ import { HttpModel } from '@Interfaces';
 
 const {
 	publicRuntimeConfig: { API_KEY, API_URL },
-} = getConfig();
+} = getConfig()
 
-const BaseUrl = `${API_URL}/api`;
+const BaseUrl = `${API_URL}/api`
 
 export const Http = {
 	Request: async <A>(
@@ -26,7 +22,7 @@ export const Http = {
 		payload?: HttpModel.IRequestPayload,
 	): Promise<A> => {
 		return new Promise((resolve, reject) => {
-			const query = params ? `?${stringify({ ...params, api_key: API_KEY })}` : '';
+			const query = params ? `?${stringify({ ...params, api_key: API_KEY })}` : ''
 
 			fetch(`${BaseUrl}${url}${query}`, {
 				body: JSON.stringify(payload),
@@ -38,14 +34,14 @@ export const Http = {
 			})
 				.then(async response => {
 					if (response.status === 200) {
-						return response.json().then(resolve);
+						return response.json().then(resolve)
 					} else {
-						return reject(response);
+						return reject(response)
 					}
 				})
 				.catch(e => {
-					reject(e);
-				});
-		});
+					reject(e)
+				})
+		})
 	},
-};
+}

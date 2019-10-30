@@ -1,11 +1,9 @@
-//#region Global Imports
-import { Props } from 'prop-types';
-//#endregion Global Imports
+import { Props } from 'prop-types'
 
 declare namespace IHeading {
 	export interface IProps extends Props<{}> {
-		text: string;
+		text: string
 	}
 
-	export interface IState {}
+	export interface IState { }
 }

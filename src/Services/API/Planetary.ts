@@ -1,20 +1,18 @@
-//#region Local Imports
-import { Http } from '@Services';
-import { PlanetaryModel } from '@Interfaces';
-//#endregion Local Imports
+import { Http } from '@Services'
+import { PlanetaryModel } from '@Interfaces'
 
 export const PlanetaryService = {
 	GetPlanetImage: async (
 		payload: PlanetaryModel.GetApodPayload,
 	): Promise<PlanetaryModel.GetApodResponse> => {
-		let response: PlanetaryModel.GetApodResponse;
+		let response: PlanetaryModel.GetApodResponse
 
 		try {
 			response = await Http.Request<PlanetaryModel.GetApodResponse>(
 				'GET',
 				'/planetary/apod',
 				payload.params,
-			);
+			)
 		} catch (error) {
 			response = {
 				copyright: '',
@@ -24,9 +22,9 @@ export const PlanetaryService = {
 				service_version: '',
 				title: '',
 				url: '',
-			};
+			}
 		}
 
-		return response;
+		return response
 	},
-};
+}

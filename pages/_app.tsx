@@ -1,41 +1,51 @@
-//#region Global Imports
-import App, { Container, NextAppContext } from 'next/app';
-import * as React from 'react';
-import { Provider } from 'react-redux';
-import withRedux from 'next-redux-wrapper';
-//#endregion Global Imports
+import App, { AppContext } from 'next/app'
+import * as React from 'react'
+import { Provider } from 'react-redux'
+import withRedux from 'next-redux-wrapper'
+import { JssProvider } from 'react-jss'
+import { MuiThemeProvider } from '@material-ui/core'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import { StylesProvider } from '@material-ui/core/styles'
 
-//#region Local Imports
-import store from '@Redux/store';
-import '../static/css/reset.scss';
-//#endregion Local Imports
-
-//#region Interface Imports
-import { IApp } from '@Interfaces';
-//#endregion Interface Imports
+import store from '@Redux/store'
+import { IApp } from '@Interfaces'
+import { defaultTheme } from '@Themes'
 
 class MyApp extends App<IApp.IProps> {
-	static async getInitialProps(props: NextAppContext) {
-		let pageProps = {};
+	static async getInitialProps(props: AppContext) {
+		let pageProps = {}
 
 		if (props.Component.getInitialProps) {
-			pageProps = await props.Component.getInitialProps(props.ctx);
+			pageProps = await props.Component.getInitialProps(props.ctx)
 		}
 
-		return { pageProps };
+		return { pageProps }
+	}
+
+	componentDidMount() {
+    const jssStyles: any = document.querySelector('#jss-server-side')
+
+    if (jssStyles) {
+      jssStyles.parentNode.removeChild(jssStyles)
+    }
 	}
 
 	render(): JSX.Element {
-		const { Component, pageProps, store } = this.props;
+		const { Component, pageProps, store } = this.props
 
 		return (
-			<Container>
-				<Provider store={store}>
-					<Component {...pageProps} />
-				</Provider>
-			</Container>
-		);
+			<Provider store={store as any}>
+				<JssProvider>
+					<MuiThemeProvider theme={defaultTheme}>
+						<StylesProvider injectFirst>
+							<CssBaseline />
+							<Component {...pageProps} />
+						</StylesProvider>
+					</MuiThemeProvider>
+				</JssProvider>
+			</Provider>
+		)
 	}
 }
 
-export default withRedux(store)(MyApp);
+export default withRedux(store)(MyApp)

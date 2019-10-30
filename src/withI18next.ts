@@ -1,33 +1,29 @@
-//#region Global Imports
-import { translate } from 'react-i18next';
-import { NextComponentType, NextContext, NextComponentClass } from 'next';
-//#endregion Global Imports
+import { translate } from 'react-i18next'
+import { NextComponentType } from 'next'
 
-//#region Local Imports
-import { getInitialProps, I18n } from '../app/i18n/i18n';
-//#endregion Local Imports
+import { getInitialProps, I18n } from '../app/i18n/i18n'
 
-const setComposedInitialProps = async (ComposedComponent: NextComponentType, ctx: NextContext) => {
-	return ComposedComponent.getInitialProps ? await ComposedComponent.getInitialProps(ctx) : {};
-};
+const setComposedInitialProps = async (ComposedComponent: NextComponentType, ctx: any) => {
+	return ComposedComponent.getInitialProps ? await ComposedComponent.getInitialProps(ctx) : {}
+}
 
 export const withI18next = (namespaces = ['common']) => (ComposedComponent: NextComponentType) => {
-	const Extended: NextComponentClass = translate(namespaces, {
+	const Extended: any = translate(namespaces, {
 		i18n: I18n,
 		wait: process.browser,
-	})(ComposedComponent);
+	})(ComposedComponent)
 
-	Extended.getInitialProps = async (ctx: NextContext) => {
-		const composedInitialProps = await setComposedInitialProps(ComposedComponent, ctx);
+	Extended.getInitialProps = async (ctx: any) => {
+		const composedInitialProps = await setComposedInitialProps(ComposedComponent, ctx)
 
 		const i18nInitialProps =
-			ctx.req && !process.browser ? getInitialProps(ctx.req, namespaces) : {};
+			ctx.req && !process.browser ? getInitialProps(ctx.req, namespaces) : {}
 
 		return {
 			...composedInitialProps,
 			...i18nInitialProps,
-		};
-	};
+		}
+	}
 
-	return Extended;
-};
+	return Extended
+}

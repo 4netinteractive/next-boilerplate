@@ -1,7 +1,7 @@
-import { IAction, IHomePage } from '@Interfaces';
-import { ActionConsts } from '@Definitions';
+import { IAction, IHomePage } from '@Interfaces'
+import { ActionConsts } from '@Definitions'
 
-import { HomeReducer } from './home';
+import { HomeReducer } from './home'
 
 describe('home reducer', () => {
 	it('should return the initial state', () => {
@@ -9,8 +9,8 @@ describe('home reducer', () => {
 			home: {
 				version: 1,
 			},
-		});
-	});
+		})
+	})
 
 	it('should handle SetReducer', () => {
 		expect(
@@ -22,8 +22,8 @@ describe('home reducer', () => {
 			}),
 		).toEqual({
 			version: 2,
-		});
-	});
+		})
+	})
 
 	it('should handle ResetReducer', () => {
 		expect(
@@ -34,6 +34,6 @@ describe('home reducer', () => {
 			home: {
 				version: 1,
 			},
-		});
-	});
-});
+		})
+	})
+})
