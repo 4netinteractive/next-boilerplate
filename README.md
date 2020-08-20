@@ -1,5 +1,7 @@
 
-<img src="banner.jpg" alt="Performance oriented Next.js application boilerplate with Redux, Typescript, Express.js and Sass." align="center" />
+# DEPRECATED: 
+
+## See (https://dev.azure.com/4net/_git/next-boilerplate) for new boilerplate
 
 <br/>
 <div align="center" >Performance oriented Next.js application boilerplate with Redux, Typescript, Express.js and Sass.</div>
